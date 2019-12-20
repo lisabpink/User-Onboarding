@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 // import OnBoardForm from "./Form"
 import { Formik, Form, Field,ErrorMessage } from 'formik';
+import {Button} from 'reactstrap'
+
 
 const validate =({name, age})=>{
   const errors ={};
@@ -33,17 +35,19 @@ function App() {
         initialValues={{ name: "", age: ""}}
         render={props=>{
           return(
+            
             <Form>
                 <Field name="name" type="text" placeholder="enter name" />
                 <ErrorMessage  name="name" component="div" className="red"/>
 
-                <Field name="email" type="text" placeholder="enter email" />
+                <Field type="email" name="email" placeholder="Email" />
                 <ErrorMessage  name="email" component="div" className="red"/>
 
                 <Field name="password" type="text" placeholder="enter password" />
                 <ErrorMessage  name="password" component="div" className="red"/>
 
-                <input type="submit" />
+                
+                <Button className="button is-danger ">Submit</Button>
             </Form>
           );
         }}
